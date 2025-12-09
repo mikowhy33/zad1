@@ -37,9 +37,38 @@ export function Products() {
     }
   }, []);
 
+  const SortBy = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const sortType = e.target.value;
+    //0 default, 1 title, 2 price
+    console.log(sortType);
+
+    // copy of our data
+    const sorted = [...dataFromApi];
+
+    if (sortType === '1') {
+      setDataFromApi(sorted.sort((a, b) => (a.title > b.title ? 1 : -1)));
+      return;
+    }
+    if (sortType === '2') {
+      setDataFromApi(sorted.sort((a: any, b: any) => a.price - b.price));
+      return;
+    } else {
+      setDataFromApi(sorted.sort((a, b) => a.id - b.id));
+      console.log('bzz');
+    }
+  };
+
   return (
     <>
       <div>a list of products here</div>
+
+      {/* trick to always get a type;) */}
+      {/* <select defaultValue={0} onChange={(e)=>SortBy(e)}> */}
+      <select defaultValue={0} onChange={SortBy} className="bg-black rounded-xl m-2 p-2">
+        <option value={0}>Sort by: Default</option>
+        <option value={1}>Sort by: Title</option>
+        <option value={2}>Sort by: Price</option>
+      </select>
       <hr />
       <ul>
         {dataFromApi.map((item) => (
