@@ -15,7 +15,7 @@ function App() {
     // cannot malipulate api/server so we gotta use localStorage
     const saved = localStorage.getItem('cart');
 
-    console.log(saved + 'localstorage');
+    // console.log(saved + 'localstorage');
     if (saved) {
       return JSON.parse(saved);
     } else {
@@ -54,7 +54,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
-    console.log(cart.length);
+    // console.log(cart.length);
     // console.log(amount)
   }, [cart]);
 
@@ -67,7 +67,7 @@ function App() {
       <div className="p-4">
         <Routes>
           {/* Main path */}
-          <Route path="/" element={<Home addToCartFunc={addToCart} cart={cart} />} />
+          <Route path="/" element={<Home addToCart={addToCart}/>} />
 
           {/* Products path  */}
           <Route path="/products" element={<Products addToCartFunc={addToCart} deleteFromCart={deleteFromCart} cart={cart} />} />

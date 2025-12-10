@@ -6,7 +6,7 @@ type Props = {
 
 export const TrashCan = ({ count }: Props) => {
   const bzz = () => {
-    console.log('bbzz');
+    // console.log('bbzz');
   };
 
   // const [quantityOfProducts,setQuantityOfProducts]=useState()
