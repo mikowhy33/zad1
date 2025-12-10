@@ -10,3 +10,13 @@ export type FetchedData = {
     count: number;
   };
 };
+
+export type AddToCart = {
+  addToCartFunc: (item: FetchedData) => void;
+  deleteFromCart: (item: FetchedData) => void;
+  cart: FetchedData[];
+};
+
+export type AddToCartHome = {
+  addToCart: (item: FetchedData) => void;
+};

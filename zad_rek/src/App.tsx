@@ -3,16 +3,14 @@ import './App.css';
 import { Navigation } from './components/Navigation';
 import { Products } from './pages/Products';
 import { ErrorPage } from './pages/ErrorPage';
-import { Home } from './components/Home';
+import { Home } from './pages/Home';
 import { TrashCan } from './components/TrashCan';
 import { useEffect, useState } from 'react';
 import type { FetchedData } from './types/types';
 
 function App() {
-
   const [cart, setCart] = useState<FetchedData[]>(() => {
-
-    // cannot malipulate api/server so we gotta use localStorage
+    // cannot manipulate api/server so we gotta use localStorage
     const saved = localStorage.getItem('cart');
 
     // console.log(saved + 'localstorage');
@@ -67,7 +65,7 @@ function App() {
       <div className="p-4">
         <Routes>
           {/* Main path */}
-          <Route path="/" element={<Home addToCart={addToCart}/>} />
+          <Route path="/" element={<Home addToCart={addToCart} />} />
 
           {/* Products path  */}
           <Route path="/products" element={<Products addToCartFunc={addToCart} deleteFromCart={deleteFromCart} cart={cart} />} />

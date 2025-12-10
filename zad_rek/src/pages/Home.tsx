@@ -1,23 +1,19 @@
 import { useMemo, useState } from 'react';
 import { FetchingHook } from '../hooks/fetchingHook';
-import type { FetchedData } from '../types/types';
+import type { AddToCartHome } from '../types/types';
 
-type AddToCart = {
-  addToCart: (item: FetchedData) => void;
-};
 
-export function Home({ addToCart }: AddToCart) {
+export function Home({ addToCart }: AddToCartHome) {
   const { dataFromApi, loading, errorWhileFetching } = FetchingHook();
 
-  console.log('Data from homepage');
-  console.log(dataFromApi);
-
-  console.log(dataFromApi.length + 'Length');
-
+  // console.log('Data from homepage');
+  // console.log(dataFromApi);
+  // console.log(dataFromApi.length + 'Length');
   // console.log(randomNr);
 
   const [timesAddesToTheBasket, setTimesAddesToTheBasket] = useState(0);
 
+  // to memorize the random item we have chosen and not change it on a click!
   const randomItem = useMemo(() => {
     const randomNr = Math.floor(Math.random() * 20);
 
@@ -25,9 +21,7 @@ export function Home({ addToCart }: AddToCart) {
   }, [dataFromApi]);
 
   const AddedToTheBasket = () => {
-    // setTimeout(() => {
     setAddedRandom(true);
-    // }, 1000);
 
     addToCart(randomItem);
     setTimesAddesToTheBasket((prev) => prev + 1);

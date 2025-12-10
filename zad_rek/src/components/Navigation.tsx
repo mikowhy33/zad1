@@ -6,7 +6,7 @@ export const Navigation = () => {
       <NavLink to="/" end>
         Home
       </NavLink>
-      <NavLink to="/Products" end>
+      <NavLink to="/products" end>
         Products
       </NavLink>
     </nav>

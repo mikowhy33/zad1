@@ -1,15 +1,9 @@
 
-import type { FetchedData } from '../types/types';
+import type { AddToCart } from '../types/types';
 import { FetchingHook } from '../hooks/fetchingHook';
 // import { TrashCan } from '../components/TrashCan';
 // import { data } from 'react-router-dom';
 
-type AddToCart = {
-  addToCartFunc: (item: FetchedData) => void;
-  deleteFromCart: (item: FetchedData) => void;
-  cart: FetchedData[];
-  
-};
 
 export function Products({ addToCartFunc, deleteFromCart, cart }: AddToCart) {
  
